@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::API
   include AbstractController::Translation
 
+  #before_action :authorize_app_secret!
   before_action :authenticate_user_from_token!
-  before_action :authorize_app_secret
 
   respond_to :json
 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
 
   ##
   # Verify Request Coming From Verified Source
-  def authorize_app_secret
+  def authorize_app_secret!
     unless correct_app_secret?
       render nothing: true, status: 404
     end
@@ -62,5 +62,5 @@ class ApplicationController < ActionController::API
   end
   #
   ##
-  
+
 end

@@ -7,6 +7,7 @@ gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.18'
 
 gem 'rails-api'
+gem 'active_model_serializers'
 
 
 # User authentication
