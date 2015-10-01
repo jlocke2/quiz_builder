@@ -4,17 +4,13 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 
 # Use MySQL as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 gem 'rails-api'
 
 
 # User authentication
 gem 'devise'
-gem "devise-async"
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
 
 
 # Puma app server
