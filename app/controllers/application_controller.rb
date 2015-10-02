@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
   include AbstractController::Translation
+  include ActionController::Serialization
 
-  #before_action :authorize_app_secret!
+  before_action :authorize_app_secret!
   before_action :authenticate_user_from_token!
 
   respond_to :json
@@ -49,6 +50,7 @@ class ApplicationController < ActionController::API
     if user && Devise.secure_compare(user.access_token, auth_token)
       # User can access
       sign_in user, store: false
+      @current_user = user
     else
       authentication_error
     end

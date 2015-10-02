@@ -14,6 +14,17 @@ module V1
       end
     end
 
+    # PATCH /v1/users
+    # Updates an user
+    def update
+
+      if @current_user.update_attributes(user_params)
+        render json: @current_user, serializer: V1::SessionSerializer, root: nil
+      else
+        render json: { error: 'user_create_error' }, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def user_params

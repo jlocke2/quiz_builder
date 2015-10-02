@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true
 
+  has_many :quizzes
+
   private
 
   def update_access_token!

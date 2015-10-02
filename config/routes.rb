@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   namespace :v1, defaults: { format: :json } do
     resource :login, only: [:create], controller: :sessions
-    resources :users, only: [:create]
+    resources :users, only: [:create, :update]
+    resources :quizzes, only: [:index, :create]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
